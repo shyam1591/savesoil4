@@ -18,6 +18,8 @@ from django.urls import path
 from blog import views
 
 urlpatterns = [
-    path("", views.home, name="home"),
+    path("topics/<slug:slug>/", views.TopicDetailView.as_view(), name="topic-detail"),
+    path("topics/", views.TopicListView.as_view(), name="topic-list"),
+    path("", views.HomeView.as_view(), name="home"),
     path("admin/", admin.site.urls),
 ]

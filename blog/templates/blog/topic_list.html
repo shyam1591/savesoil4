@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %} {% block page_title %}Topics{% endblock %}
+{%block main %}
+<h1>Topics</h1>
+
+{% for tp_list in list_topics %}
+<article class="topic-preview">
+  <ul>
+    <li>
+      <a href="{{tp_list.get_absolute_url}}"> <h3>{{ tp_list.name }}</h3></a>
+    </li>
+  </ul>
+</article>
+{% endfor %} {% endblock %}

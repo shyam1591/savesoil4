@@ -1,15 +1,20 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
 
-
+### Topic Model ###
 class Topic(models.Model):
     """Model for Topic"""
 
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(unique=True)
+
+    def get_absolute_url(self):
+        """Have unique url for slug"""
+        return reverse("topic-detail", kwargs={"slug": self.slug})
 
     class Meta:
 
@@ -18,9 +23,11 @@ class Topic(models.Model):
         ordering = ["name"]
 
     def __str__(self):
+        """return method"""
         return self.name
 
 
+### Post model ###
 class Post(models.Model):
     """
     Model for blog post
@@ -75,6 +82,7 @@ class Post(models.Model):
         return self.title
 
 
+### Comment Model ###
 class Comment(models.Model):
     """Comment Model"""
 
