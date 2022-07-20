@@ -92,3 +92,24 @@ html {
 .post-preview section {
   margin: 1rem 0;
 }
+
+#post-detail h2 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: rgb(40, 40, 178);
+}
+
+#post-detail .author {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: rgb(24, 18, 193);
+}
+
+#post-detail .published {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+#post-detail .content {
+  margin: 2rem 0;
+}

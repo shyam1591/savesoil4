@@ -1,4 +1,16 @@
 {% extends "blog/base.html" %}
 <!---->
-{% block page_title %}Posts{% endblock %} {%block main %} {% for p_list in
-post_topics %} {{p_list.name}} {%endblock %}
+{% block page_title %}Topic Detail View{% endblock %}
+<!---->
+{%block main %}
+<article id="post-detail">
+  {% for lit in pt %}
+  <ul>
+    <li>
+      <h1>{{lit}}</h1>
+      <span class="content">{{lit.content}}</span><br />
+      <span class="author">{{lit.author}}</span>
+    </li>
+  </ul>
+  {% endfor %} {%endblock %}
+</article>
