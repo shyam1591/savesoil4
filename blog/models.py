@@ -5,6 +5,22 @@ from django.urls import reverse
 
 # Create your models here.
 
+class Photocontest(models.Model):
+    """Model for PhotoContest"""
+
+    name = models.CharField(max_length=100,unique=True)
+    email = models.EmailField()
+    image = models.ImageField(null = True, blank = True)
+    submitted = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        """Define filtering order"""
+
+        ordering = ['-submitted']
+
+    def __str__(self):
+        return self.name
+
 ### Topic Model ###
 class Topic(models.Model):
     """Model for Topic"""

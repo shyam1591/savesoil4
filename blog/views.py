@@ -3,7 +3,10 @@ from django.views.generic.list import ListView
 from django.views.generic import DetailView
 from django.shortcuts import render
 from django.db.models import Count
+from django.http import HttpResponseRedirect
 from . import models
+from .forms import Photocontestform
+
 
 # Create your views here.
 # def home(request):
@@ -16,6 +19,19 @@ from . import models
 
 #     return render(request, "blog/home.html", context)
 
+def photo_contest(request):
+    """View method"""
+    submitted = False # if some visit the page for first time
+    if request.method == "POST":
+        form = Photocontestform(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/PhotoContest?sub=True')
+    else:
+        form = Photocontestform
+        if 'sub' in request.GET:
+            submitted = True
+    return render(request, 'blog/contest_form.html',{'form':form,'submitted':submitted})
 
 class HomeView(TemplateView):
     """Class based view for Home tab"""
@@ -38,19 +54,6 @@ class TopicDetailView(DetailView):
 
     template_name = "blog/topic_detail.html"
     model = models.Topic
-    # context_object_name = "post_topic"
-    # print(models.Post.objects.filter(topics=1))
-
-    # def get_queryset(self):
-    #     # tps = models.Topic.objects.filter(slug=self.kwargs.get("slug"))
-    #     # tps = models.Post.objects.filter(topics__slug=self.kwargs.get("slug"))
-    #     print(models.Topic.objects.filter(blog_posts__topics=self.kwargs.get("slug")))
-
-    #     return models.Topic.objects.filter(blog_posts__topics=self.kwargs.get("slug"))
-
-    # def get_object(self, **kwargs):
-    #     print(kwargs)
-    #     return models.Topic.objects.get(slug=self.kwargs["slug"])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

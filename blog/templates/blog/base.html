@@ -9,8 +9,8 @@
 
   <body>
     <header id="site-header">
-      <img src = "{% static "blog/logo.jpg" %}" alt="Logo" height="50" width="50">
-      <h1>Save Soil</h1>
+      <img src = "{% static "blog/logo.jpg" %}" alt="Logo" height="50" width="50" style="float: right;"/>
+      <h1 style="float: left;">Save Soil</h1><br><br>
       <p>A blog about spreading awareness on how to save soil</p>
     </header>
 
@@ -20,6 +20,7 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Posts</a></li>
         <li><a href="{% url "topic-list" %}">Topics</a></li>
+        <li><a href="{% url "photo-contest" %}">PhotoContest</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>

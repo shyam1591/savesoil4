@@ -12,6 +12,8 @@ html {
     max-width: 1000px;  /* Set max width */
     min-height: 100%;  /* Full height */
     padding: 1rem;
+    /*color: rgb(17, 0, 255)*/;
+    background-color: rgb(69, 230, 69);
   }
   
   /*
@@ -34,7 +36,7 @@ html {
   }
   
   #site-header p {
-    font-size: 0.9rem;
+    font-size: medium;
     color: #666;
     padding: 0;
     margin: 0;
@@ -43,7 +45,7 @@ html {
   /* Style the top nav */
   #top-nav {
     padding: 0.5rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgb(22, 211, 38);
   }
   
   #top-nav ul {
@@ -56,6 +58,12 @@ html {
     list-style-type: none;
     display: inline-block;
     padding-right: 1rem;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size:x-large;
+  }
+
+  #top-nav li :hover{
+    color : white
   }
   
   #top-nav a {
@@ -112,4 +120,22 @@ html {
 
 #post-detail .content {
   margin: 2rem 0;
+}
+
+/*li {
+  font-family:"Comic Sans MS", "Comic Sans", cursive;
+  font-size:large
+}
+
+#sidebar li :hover{
+  color:white
+}*/
+
+li {
+  font-family:"Comic Sans MS", "Comic Sans", cursive;
+  font-size:large
+}
+
+li :hover{
+  color:white
 }

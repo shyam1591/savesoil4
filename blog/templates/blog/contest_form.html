@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+<!---->
+{% block page_title %}Photo Contest{% endblock %}
+<!---->
+{% block main %}
+<h1>Fill Up Below Form to Enter Contest</h1>
+{% if sub %} Your picture has been submitted for Contest {% else %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {{form.as_p}}
+  <input type="submit" value="Submit" class="btn btn-secondary" />
+</form>
+{% endif %} {% endblock%}
